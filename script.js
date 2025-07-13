@@ -288,6 +288,10 @@ if (contactForm) {
             modal.classList.add('show');
             document.body.classList.add('modal-open');
             
+            // Store current scroll position
+            const scrollY = window.scrollY;
+            document.body.style.top = `-${scrollY}px`;
+            
             // Reset form
             contactForm.reset();
             clearValidationErrors();
@@ -304,6 +308,13 @@ function closeModalFunction() {
     // try {
         modal.classList.remove('show');
         document.body.classList.remove('modal-open');
+        
+        // Restore scroll position
+        const scrollY = document.body.style.top;
+        document.body.style.position = '';
+        document.body.style.top = '';
+        window.scrollTo(0, parseInt(scrollY || '0') * -1);
+        
         // debugLog('Modal closed');
     // } catch (error) {
     //     handleError(error, 'Close modal');

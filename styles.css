@@ -1529,6 +1529,9 @@ textarea:focus {
 /* Prevent body scroll when modal is open */
 body.modal-open {
     overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
 }
 
 .hero-container {
