@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Figma Land - The Best Products Start with Figma</title>
+    
+    <!-- Performance optimizations -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+    
+    <!-- Debug mode detection -->
+    <script>
+        // Debug mode detection
+        window.DEBUG_MODE = window.location.search.includes('debug=true') || 
+                           localStorage.getItem('debugMode') === 'true';
+        
+        // Performance monitoring
+        window.performanceMetrics = {
+            pageLoadStart: performance.now(),
+            interactions: 0,
+            errors: []
+        };
+        
+        // Global error handler
+        // window.addEventListener('error', function(e) {
+        //     window.performanceMetrics.errors.push({
+        //         message: e.message,
+        //         filename: e.filename,
+        //         lineno: e.lineno,
+        //         timestamp: Date.now()
+        //     });
+        //     console.error('[GLOBAL ERROR]', e);
+        // });
+        
+        // Debug logging function
+        // window.debugLog = function(message, data) {
+        //     if (window.DEBUG_MODE) {
+        //         console.log(`[DEBUG] ${message}`, data || '');
+        //     }
+        // };
+    </script>
+    
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Debug styles for development -->
+    <!-- <style>
+        /* Debug styles - only show in debug mode */
+        .debug-mode * {
+            outline: 1px solid rgba(255, 0, 0, 0.2) !important;
+        }
+        
+        .debug-mode .container {
+            outline: 2px solid rgba(0, 255, 0, 0.3) !important;
+        }
+        
+        .debug-mode .header {
+            outline: 2px solid rgba(0, 0, 255, 0.3) !important;
+        }
+        
+        /* Performance indicator */
+        .performance-indicator {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            z-index: 10000;
+            display: none;
+        }
+        
+        .debug-mode .performance-indicator {
+            display: block;
+        }
+    </style> -->
+</head>
+<body>
+    <!-- Performance indicator for debug mode -->
+    <!-- <div class="performance-indicator" id="performanceIndicator">
+        Load: <span id="loadTime">0</span>ms | Interactions: <span id="interactionCount">0</span>
+    </div> -->
+
+    <div class="hero-container">
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="container">
+            <nav class="nav" role="navigation" aria-label="Main navigation">
+                <div class="nav-left">
+                    <ul class="nav-menu" role="menubar">
+                        <li role="none"><a href="#home" role="menuitem" aria-label="Go to home section">Home</a></li>
+                        <li role="none"><a href="#product" role="menuitem" aria-label="Go to product section">Product</a></li>
+                        <li role="none"><a href="#pricing" role="menuitem" aria-label="Go to pricing section">Pricing</a></li>
+                        <li role="none"><a href="#about" role="menuitem" aria-label="Go to about section">About</a></li>
+                        <li role="none"><a href="#contact" role="menuitem" aria-label="Go to contact section">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="logo">
+                    <img src="Assets/Rectangle 4.png" alt="Figma Land Logo" class="logo-img" loading="eager">
+                </div>
+                <div class="social-links" role="group" aria-label="Social media links">
+                    <a href="#" class="social-link" aria-label="Follow us on Twitter">
+                        <img src="Assets/ant-design_twitter-outlined.svg" alt="Twitter" class="social-icon" loading="lazy">
+                    </a>
+                    <a href="#" class="social-link" aria-label="Follow us on Facebook">
+                        <img src="Assets/ant-design_facebook-filled.svg" alt="Facebook" class="social-icon" loading="lazy">
+                    </a>
+                    <a href="#" class="social-link" aria-label="Follow us on LinkedIn">
+                        <img src="Assets/ant-design_linkedin-filled.svg" alt="LinkedIn" class="social-icon" loading="lazy">
+                    </a>
+                </div>
+                <div class="hamburger" role="button" aria-label="Toggle mobile menu" aria-expanded="false" tabindex="0">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home" role="banner" aria-labelledby="hero-title">
+        <div class="hero-visuals">
+            <div class="hero-background">
+                <img src="Assets/Rectangle 9.png" alt="Hero Background" loading="eager">
+            </div>
+            <div class="hero-right-triangle"></div>
+            <div class="hero-left-triangle"></div>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title" id="hero-title">
+                    <span class="title-line">The best products</span>
+                    <span class="title-line">start with Figma</span>
+                </h1>
+                <p class="hero-subtitle">
+                    <span class="subtitle-line">Most calendars are designed for teams.</span>
+                    <span class="subtitle-line">Slate is designed for freelancers</span>
+                </p>
+                <button class="cta-button" aria-label="Try Figma Land for free">Try For Free</button>
+            </div>
+        </div>
+    </section>
+    </div>
+
+    <!-- Features Section -->
+    <section class="features" id="product" role="region" aria-labelledby="features-title">
+        <div class="features-container">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="features-title">Features</h2>
+                    <p>
+                        <span class="section-text-line">Most calendars are designed for teams.</span>
+                        <span class="section-text-line">Slate is designed for freelancers</span>
+                    </p>
+                </div>
+                <div class="features-grid" role="list">
+                <article class="feature-card" role="listitem">
+                    <div class="feature-icon">
+                        <img src="Assets/type_feature.svg" alt="OpenType Features Icon" width="40" height="40" loading="lazy">
+                    </div>
+                    <h3>
+                        <span class="feature-title-line">OpenType features</span>
+                        <span class="feature-title-line">Variable fonts</span>
+                    </h3>
+                    <p>Slate helps you see how many more days you need to work to reach your financial goal.</p>
+                </article>
+                <article class="feature-card" role="listitem">
+                    <div class="feature-icon">
+                        <img src="Assets/design with real data.svg" alt="Design with Real Data Icon" width="40" height="40" loading="lazy">
+                    </div>
+                    <h3>Design with real data</h3>
+                    <p>Slate helps you see how many more days you need to work to reach your financial goal.</p>
+                </article>
+                <article class="feature-card" role="listitem">
+                    <div class="feature-icon">
+                        <img src="Assets/fast way to take action.svg" alt="Fastest Way to Take Action Icon" width="40" height="40" loading="lazy">
+                    </div>
+                    <h3>
+                        <span class="feature-title-line">Fastest way to</span>
+                        <span class="feature-title-line">take action</span>
+                    </h3>
+                    <p>Slate helps you see how many more days you need to work to reach your financial goal.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section" role="region" aria-labelledby="video-title">
+        <div class="video-container-section">
+            <div class="container">
+                <div class="video-container">
+                <img src="Assets/video_thumbnail.jpg" alt="Video Thumbnail" class="video-thumbnail" width="1177.341" height="658.303" loading="lazy">
+                <video id="heroVideo" style="display: none;" controls preload="metadata" aria-label="Product demonstration video">
+                    <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="play-button" id="playButton" role="button" aria-label="Play video" tabindex="0">
+                    <svg width="60" height="60" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Organize Section -->
+    <section class="organize" role="region" aria-labelledby="organize-title">
+        <div class="organize-container">
+            <div class="container">
+                <div class="organize-content">
+                <div class="organize-text">
+                    <h2 id="organize-title">
+                        <span class="section-title-line">Fastest way to</span>
+                        <span class="section-title-line">organize</span>
+                    </h2>
+                    <p>
+                        <span class="section-text-line">Most calendars are designed for teams.</span>
+                        <span class="section-text-line">Slate is designed for freelancers</span>
+                    </p>
+                    <button class="cta-button" aria-label="Try organizing features for free">Try For Free</button>
+                </div>
+                <div class="organize-image">
+                    <img src="Assets/Frame 18.png" alt="Macbook showing organization features" loading="lazy" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter" role="region" aria-labelledby="newsletter-title">
+        <div class="newsletter-container">
+            <div class="container">
+                <div class="newsletter-content">
+                <div class="newsletter-illustration">
+                    <img src="Assets/lightining_fast.png" alt="Newsletter illustration" loading="lazy">
+                </div>
+                <div class="newsletter-text">
+                    <p class="newsletter-label">At your fingertips</p>
+                    <h2 id="newsletter-title">
+                        <span class="section-title-line">Lightning fast</span>
+                        <span class="section-title-line">prototyping</span>
+                    </h2>
+                    <div class="newsletter-form">
+                        <h3>Subscribe to our Newsletter</h3>
+                        <p>Available exclusively on Figmaland</p>
+                        <form class="subscribe-form" role="form" aria-labelledby="newsletter-title">
+                            <input type="email" placeholder="Your Email" required aria-label="Enter your email address">
+                            <button type="submit" aria-label="Subscribe to newsletter">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners" role="region" aria-labelledby="partners-title">
+        <div class="partners-container">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="partners-title">Partners</h2>
+                    <p>
+                        <span class="section-text-line">Most calendars are designed for teams.</span>
+                        <span class="section-text-line">Slate is designed for freelancers</span>
+                    </p>
+                </div>
+                <div class="partners-grid">
+                <img src="Assets/Partners.png" alt="Our Partners" width="1075" height="330" style="display:block;" loading="lazy">
+            </div>
+            <button class="cta-button" aria-label="Try partner features for free">Try For Free</button>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" role="region" aria-labelledby="testimonials-title">
+        <div class="testimonials-container">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="testimonials-title">Testimonials</h2>
+                </div>
+                <div class="testimonials-slider" role="region" aria-label="Customer testimonials">
+                <article class="testimonial-slide active" role="group" aria-label="Testimonial 1 of 3">
+                    <div class="testimonial-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" loading="lazy">
+                    </div>
+                    <p class="testimonial-text">Slate has transformed how we approach project planning. The intuitive design makes it easy for our team to collaborate effectively.</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&fit=crop" alt="Jane Smith" loading="lazy">
+                        <div class="author-info">
+                            <h4>Jane Smith</h4>
+                            <p>Product Manager</p>
+                        </div>
+                    </div>
+                </article>
+                <article class="testimonial-slide" role="group" aria-label="Testimonial 2 of 3">
+                    <div class="testimonial-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM" loading="lazy">
+                    </div>
+                    <p class="testimonial-text">Most calendars are designed for teams. Slate is designed for freelancers who want a simple way to plan their schedule.</p>
+                    <div class="testimonial-author">
+                        <img src="Assets/avatar.png" alt="John Doe" loading="lazy">
+                        <div class="author-info">
+                            <h4>John Doe</h4>
+                            <p>UI Designer</p>
+                        </div>
+                    </div>
+                </article>
+                <article class="testimonial-slide" role="group" aria-label="Testimonial 3 of 3">
+                    <div class="testimonial-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" loading="lazy">
+                    </div>
+                    <p class="testimonial-text">The flexibility and powerful features of Slate have made it an essential tool for our design workflow. Highly recommended!</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&fit=crop" alt="Mike Johnson" loading="lazy">
+                        <div class="author-info">
+                            <h4>Mike Johnson</h4>
+                            <p>Creative Director</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="testimonials-dots" role="tablist" aria-label="Testimonial navigation">
+                <span class="dot active" role="tab" aria-selected="true" aria-label="Go to testimonial 1" tabindex="0"></span>
+                <span class="dot" role="tab" aria-selected="false" aria-label="Go to testimonial 2" tabindex="0"></span>
+                <span class="dot" role="tab" aria-selected="false" aria-label="Go to testimonial 3" tabindex="0"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing" role="region" aria-labelledby="pricing-title">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="pricing-title">Pricing</h2>
+                <p>
+                    <span class="section-text-line">Most calendars are designed for teams.</span>
+                    <span class="section-text-line">Slate is designed for freelancers</span>
+                </p>
+            </div>
+            <div class="pricing-cards" role="list">
+                <article class="pricing-card" role="listitem">
+                    <h3>FREE</h3>
+                    <p>
+                        <span class="pricing-text-line">Organize across all</span>
+                        <span class="pricing-text-line">apps by hand</span>
+                    </p>
+                    <div class="price">
+                        <div class="price-main">
+                            <span class="amount">0</span>
+                            <span class="price-details">
+                                <span class="currency">$</span>
+                                <span class="period">Per Month</span>
+                            </span>
+                        </div>
+                    </div>
+                    <ul class="features-list" role="list">
+                        <li role="listitem">Pricing Feature</li>
+                        <li role="listitem">Pricing Feature</li>
+                        <li role="listitem">Pricing Feature</li>
+                        <li role="listitem">Pricing Feature</li>
+                        <li role="listitem">Pricing Feature</li>
+                    </ul>
+                    <button class="order-button" aria-label="Order free plan">Order Now</button>
+                </article>
+                <article class="pricing-card featured" role="listitem">
+                    <h3>STANDARD</h3>
+                    <p>
+                        <span class="pricing-text-line">Organize across all</span>
+                        <span class="pricing-text-line">apps by hand</span>
+                    </p>
+                    <div class="price">
+                        <div class="price-main">
+                            <span class="amount">10</span>
+                            <span class="price-details">
+                                <span class="currency">$</span>
+                                <span class="period">Per Month</span>
+                            </span>
+                        </div>
+                    </div>
+                    <ul class="features-list" role="list">
+                        <li role="listitem">Pricing Feature</li>
+                        <li role="listitem">Pricing Feature</li>
+                        <li role="listitem">Pricing Feature</li>
+                        <li role="listitem">Pricing Feature</li>
+                        <li role="listitem">Pricing Feature</li>
+                    </ul>
+                    <button class="order-button" aria-label="Order standard plan for $10 per month">Order Now</button>
+                </article>
+                <article class="pricing-card" role="listitem">
+                    <h3>BUSINESS</h3>
+                    <p>
+                        <span class="pricing-text-line">Organize across all</span>
+                        <span class="pricing-text-line">apps by hand</span>
+                    </p>
+                    <div class="price">
+                        <div class="price-main">
+                            <span class="amount">99</span>
+                            <span class="price-details">
+                                <span class="currency">$</span>
+                                <span class="period">Per Month</span>
+                            </span>
+                        </div>
+                    </div>
+                    <ul class="features-list" role="list">
+                        <li role="listitem">Pricing Feature</li>
+                        <li role="listitem">Pricing Feature</li>
+                        <li role="listitem">Pricing Feature</li>
+                        <li role="listitem">Pricing Feature</li>
+                        <li role="listitem">Pricing Feature</li>
+                    </ul>
+                    <button class="order-button" aria-label="Order business plan for $99 per month">Order Now</button>
+                </article>
+            </div>
+        </div>
+    </section>
+    <!-- End Pricing Section -->
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact" role="region" aria-labelledby="contact-title">
+        <div class="contact-container">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="contact-title">Contact Us</h2>
+                    <p>
+                        <span class="section-text-line">Most calendars are designed for teams.</span>
+                        <span class="section-text-line">Slate is designed for freelancers</span>
+                    </p>
+                </div>
+                <div class="contact-content contact-split">
+                <!-- Left: Contact Form -->
+                <div class="contact-form-container">
+                    <h3>Contact Us</h3>
+                    <form class="contact-form" id="contactForm" role="form" aria-labelledby="contact-title">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required aria-required="true" aria-describedby="name-error">
+                            <div id="name-error" class="error-message" role="alert" aria-live="polite"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required aria-required="true" aria-describedby="email-error">
+                            <div id="email-error" class="error-message" role="alert" aria-live="polite"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" rows="5" required aria-required="true" aria-describedby="message-error"></textarea>
+                            <div id="message-error" class="error-message" role="alert" aria-live="polite"></div>
+                        </div>
+                        <button type="submit" class="send-button" aria-label="Send contact form">Send</button>
+                    </form>
+                </div>
+                <!-- Right: Info, Map, Social -->
+                <div class="contact-details">
+                    <div class="contact-icons-row">
+                        <div class="contact-info-group">
+                            <div class="contact-icon-block">
+                                <img src="Assets\bx_bx-map-logog-blue.svg" alt="Location" class="contact-info-icon" loading="lazy">
+                                <div class="contact-info-text">
+                                    6386 Spring St undefined Anchorage,
+                                    <div>Georgia 12473 United States</div>
+                                </div>
+                            </div>
+                            <div class="contact-icon-block">
+                                <img src="Assets\ic_baseline-phone-android-blue.svg" alt="Phone" class="contact-info-icon" loading="lazy">
+                                <div class="contact-info-text">(843) 555-0130</div>
+                            </div>
+                            <div class="contact-icon-block">
+                                <img src="Assets\ant-design_mail-outlined-blue.svg" alt="Email" class="contact-info-icon" loading="lazy">
+                                <div class="contact-info-text">willie.jennings@example.com</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-map contact-map-centered">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30765978.00238801!2d61.00083698256399!3d19.729113061269327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30635ff06b92b791%3A0xd78c4fa1854213a6!2sIndia!5e0!3m2!1sen!2sin!4v1752290146952!5m2!1sen!2sin" 
+                            width="100%" 
+                            height="400px" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Our location on Google Maps"
+                            aria-label="Interactive map showing our location">
+                        </iframe>
+                    </div>
+                    <!-- Social Media Icons positioned at bottom of contact details container -->
+                    <div class="contact-social-bottom">
+                        <div class="contact-social-box" role="group" aria-label="Social media links">
+                            <a href="#" class="social-link" aria-label="Follow us on Twitter"><img src="Assets/ant-design_twitter-outlined-blue.svg" alt="Twitter" class="social-icon" loading="lazy"></a>
+                            <a href="#" class="social-link" aria-label="Follow us on Facebook"><img src="Assets/ant-design_facebook-filled-blue.svg" alt="Facebook" class="social-icon" loading="lazy"></a>
+                            <a href="#" class="social-link" aria-label="Follow us on LinkedIn"><img src="Assets/ant-design_linkedin-filled-blue.svg" alt="LinkedIn" class="social-icon" loading="lazy"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-container" role="contentinfo">
+      <div class="footer-columns">
+        <div class="footer-menu">
+          <div class="footer-section">
+            <h4>Pages</h4>
+            <ul role="list">
+              <li role="listitem"><a href="#home" aria-label="Go to home section">Home</a></li>
+              <li role="listitem"><a href="#product" aria-label="Go to features section">Features</a></li>
+              <li role="listitem"><a href="#pricing" aria-label="Go to pricing section">Pricing</a></li>
+              <li role="listitem"><a href="#contact" aria-label="Go to contact section">Contact</a></li>
+            </ul>
+          </div>
+          <!-- Tomothy -->
+          <div class="footer-section">
+            <h4>Tomothy</h4>
+            <ul role="list">
+              <li role="listitem">Eleanor Edwards</li>
+              <li role="listitem">Ted Robertson</li>
+              <li role="listitem">Annette Russell</li>
+              <li role="listitem">Jennie Mckinney</li>
+              <li role="listitem">Gloria Richards</li>
+            </ul>
+          </div>
+          <!-- Jane Black -->
+          <div class="footer-section">
+            <h4>Jane Black</h4>
+            <ul role="list">
+              <li role="listitem">Philip Jones</li>
+              <li role="listitem">Product</li>
+              <li role="listitem">Colleen Russell</li>
+              <li role="listitem">Marvin Hawkins</li>
+              <li role="listitem">Bruce Simmons</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Contact Info -->
+        <div class="footer-section contact-info">
+          <div class="footer-contact-item footer-location-item">
+            <img src="Assets/bx_bx-map.svg" alt="Location Logo" class="footer-icon" loading="lazy">
+            <span>
+                <span class="address-line">6386 Spring St undefined Anchorage,</span>
+                <span class="address-line">Georgia 12473 United States</span>
+            </span>
+          </div>
+          <div class="footer-contact-item">
+            <img src="Assets/ic_baseline-phone-android.svg" alt="Phone Logo" class="footer-icon" loading="lazy">
+            <span>(843) 555-0130</span>
+          </div>
+          <div class="footer-social" role="group" aria-label="Social media links">
+            <a href="#" class="social-link" aria-label="Follow us on Twitter">
+              <img src="Assets/ant-design_twitter-outlined.svg" alt="Twitter" class="footer-icon" loading="lazy">
+            </a>
+            <a href="#" class="social-link" aria-label="Follow us on Facebook">
+              <img src="Assets/ant-design_facebook-filled.svg" alt="Facebook" class="footer-icon" loading="lazy">
+            </a>
+            <a href="#" class="social-link" aria-label="Follow us on LinkedIn">
+              <img src="Assets/ant-design_linkedin-filled.svg" alt="LinkedIn" class="footer-icon" loading="lazy">
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal" id="successModal" role="dialog" aria-labelledby="modal-title" aria-describedby="modal-description" aria-hidden="true">
+        <div class="modal-content">
+            <div class="success-icon">
+                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" stroke="#FFF" stroke-width="2" fill="none"/>
+                    <path d="M9 12l2 2 4-4" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <h2 id="modal-title">Success!</h2>
+            <p id="modal-description">Your query sent successfully</p>
+            <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">Close</button>
+        </div>
+    </div>
+
+    <!-- Debug controls -->
+    <!-- <div class="debug-controls" style="position: fixed; bottom: 10px; left: 10px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 4px; font-size: 12px; z-index: 10000; display: none;">
+        <button onclick="toggleDebugMode()">Toggle Debug</button>
+        <button onclick="showPerformanceMetrics()">Show Metrics</button>
+        <button onclick="clearErrors()">Clear Errors</button>
+    </div> -->
+
+    <script src="script.js"></script>
+    
+    <!-- Debug initialization -->
+    <!-- <script>
+        // Initialize debug mode
+        if (window.DEBUG_MODE) {
+            document.body.classList.add('debug-mode');
+            document.querySelector('.debug-controls').style.display = 'block';
+            
+            // Update performance indicator
+            const loadTime = performance.now() - window.performanceMetrics.pageLoadStart;
+            document.getElementById('loadTime').textContent = Math.round(loadTime);
+            
+            // Debug functions
+            window.toggleDebugMode = function() {
+                document.body.classList.toggle('debug-mode');
+                localStorage.setItem('debugMode', document.body.classList.contains('debug-mode'));
+            };
+            
+            window.showPerformanceMetrics = function() {
+                console.log('Performance Metrics:', window.performanceMetrics);
+                alert(`Load Time: ${Math.round(window.performanceMetrics.pageLoadStart)}ms\nInteractions: ${window.performanceMetrics.interactions}\nErrors: ${window.performanceMetrics.errors.length}`);
+            };
+            
+            window.clearErrors = function() {
+                window.performanceMetrics.errors = [];
+                console.log('Errors cleared');
+            };
+            
+            // Update interaction count
+            setInterval(() => {
+                document.getElementById('interactionCount').textContent = window.performanceMetrics.interactions;
+            }, 1000);
+        }
+    </script> -->
+</body>
+</html>
